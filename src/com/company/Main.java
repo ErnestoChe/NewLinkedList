@@ -3,6 +3,7 @@ package com.company;
 
 //import java.util.ArrayList;
 
+
 class LinkedList
 {
     public Node head;
@@ -51,6 +52,10 @@ class LinkedList
             flag = false;
         }else{
             Node tmp = head;
+            if(head.value == _value){
+                head = head.next;
+                flag = true;
+            }
             while(tmp.next != null){
                 if(tmp.next.value == _value){
                     flag = true;
