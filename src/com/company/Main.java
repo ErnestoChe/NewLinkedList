@@ -1,9 +1,6 @@
 package com.company;
 
 
-//import java.util.ArrayList;
-
-
 class LinkedList
 {
     public Node head;
@@ -55,23 +52,24 @@ class LinkedList
             if(head.value == _value){
                 head = head.next;
                 flag = true;
-            }
-            while(tmp.next != null){
-                if(tmp.next.value == _value){
-                    flag = true;
-                    if(head.value == _value){
-                        head = head.next;
+            }else{
+                while(tmp.next != null){
+                    if(tmp.next.value == _value){
+                        flag = true;
+                        if(head.value == _value){
+                            head = head.next;
+                            break;
+                        }
+                        Node t = tmp.next;
+                        tmp.next = t.next;
+                        if(t.next == null){
+                            tail = tmp;
+                        }
                         break;
                     }
-                    Node t = tmp.next;
-                    tmp.next = t.next;
-                    if(t.next == null){
-                        tail = tmp;
+                    else{
+                        tmp = tmp.next;
                     }
-                    break;
-                }
-                else{
-                    tmp = tmp.next;
                 }
             }
         }
@@ -145,6 +143,27 @@ class LinkedList
     public void addFirst(int new_data) {
         head = new Node(new_data);
         tail = head;
+    }
+    public void log(){
+
+        Node temp = head;
+
+        if(head == null){
+
+            System.out.println("empty list");
+
+        }
+
+        while(temp!= null){
+
+            System.out.print(temp.value+" ");
+
+            temp = temp.next;
+
+        }
+
+        System.out.println();
+
     }
 }
 
