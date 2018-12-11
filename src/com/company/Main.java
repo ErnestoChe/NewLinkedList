@@ -47,6 +47,8 @@ class LinkedList
         boolean flag = false;
         if(head == null){
             flag = false;
+        } else if(head == tail){
+            head = null;
         }else{
             Node tmp = head;
             if(head.value == _value){
