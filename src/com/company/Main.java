@@ -1,6 +1,8 @@
 package com.company;
 
 
+//import java.util.ArrayList;
+
 class LinkedList
 {
     public Node head;
@@ -44,25 +46,31 @@ class LinkedList
 
     public boolean remove(int _value)
     {
-        Node tmp = head;
-        while(tmp.next != null){
-            if(tmp.next.value == _value){
-                if(head.value == _value){
-                    head = head.next;
+        boolean flag = false;
+        if(head == null){
+            flag = false;
+        }else{
+            Node tmp = head;
+            while(tmp.next != null){
+                if(tmp.next.value == _value){
+                    flag = true;
+                    if(head.value == _value){
+                        head = head.next;
+                        break;
+                    }
+                    Node t = tmp.next;
+                    tmp.next = t.next;
+                    if(t.next == null){
+                        tail = tmp;
+                    }
                     break;
                 }
-                Node t = tmp.next;
-                tmp.next = t.next;
-                if(t.next == null){
-                    tail = tmp;
+                else{
+                    tmp = tmp.next;
                 }
-                break;
-            }
-            else{
-                tmp = tmp.next;
             }
         }
-        return true; // если узел был удалён
+        return flag;
     }
 
     public void removeAll(int _value)
