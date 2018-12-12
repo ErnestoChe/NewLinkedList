@@ -1,5 +1,7 @@
 package com.company;
 
+
+
 class LinkedList
 {
     public Node head;
@@ -48,6 +50,7 @@ class LinkedList
             flag = false;
         } else if(head == tail && head.value == _value){
             head = null;
+            tail = null;
             flag = true;
         }else{
             Node tmp = head;
@@ -58,10 +61,6 @@ class LinkedList
                 while(tmp.next != null){
                     if(tmp.next.value == _value){
                         flag = true;
-                        /*if(head.value == _value){
-                            head = head.next;
-                            break;
-                        }*/
                         Node t = tmp.next;
                         tmp.next = t.next;
                         if(t.next == null){
