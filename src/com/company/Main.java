@@ -78,27 +78,28 @@ class LinkedList
 
     public void removeAll(int _value)
     {
-        if(head.value == _value){
-            head = head.next;
-        }
         if(head == tail && head.value == _value){
             head = null;
             tail = null;
+            System.out.println("qweqwe");
         }else
             {
-            Node temp = head;
-            while(temp.next != null){
-                if(temp.next.value == _value){
-                    Node t = temp.next;
-                    temp.next = t.next;
-                    if(t.next == null){
-                        tail = temp;
+                if(head.value == _value){
+                    head = head.next;
+                }
+                Node temp = head;
+                while(temp.next != null){
+                    if(temp.next.value == _value){
+                        Node t = temp.next;
+                        temp.next = t.next;
+                        if(t.next == null){
+                            tail = temp;
+                        }
+                    }else{
+                        temp = temp.next;
                     }
-                }else{
-                    temp = temp.next;
                 }
             }
-        }
     }
 
     public void clear()
