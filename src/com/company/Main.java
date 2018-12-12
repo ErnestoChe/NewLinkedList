@@ -1,7 +1,6 @@
 package com.company;
 
 
-
 class LinkedList
 {
     public Node head;
@@ -99,6 +98,7 @@ class LinkedList
     public void clear()
     {
         head = null;
+        tail = null;
     }
 
     public int count()
