@@ -1,7 +1,6 @@
 package com.company;
 
 
-
 class LinkedList
 {
     public Node head;
@@ -76,19 +75,18 @@ class LinkedList
         return flag;
     }
 
-    public void removeAll(int _value)
+    /*public void removeAll(int _value)
     {
         if(head == tail && head.value == _value){
             head = null;
             tail = null;
-            System.out.println("qweqwe");
         }else
             {
-                if(head.value == _value){
-                    head = head.next;
-                }
                 Node temp = head;
                 while(temp.next != null){
+                    if(head.value == _value){
+                        head = head.next;
+                    }
                     if(temp.next.value == _value){
                         Node t = temp.next;
                         temp.next = t.next;
@@ -100,6 +98,18 @@ class LinkedList
                     }
                 }
             }
+    }*/
+    public void removeAll(int _value)
+    {
+        Node temp = head;
+        while(temp.next != null){
+            remove(_value);
+            temp = temp.next;
+        }
+        if(head == tail && head.value == _value){
+            head = null;
+            tail = null;
+        }
     }
 
     public void clear()
