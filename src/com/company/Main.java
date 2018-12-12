@@ -1,6 +1,7 @@
 package com.company;
 
 
+
 class LinkedList
 {
     public Node head;
@@ -38,7 +39,6 @@ class LinkedList
                 nodes.add(node);
             node = node.next;
         }
-
         return nodes;
     }
 
@@ -81,16 +81,22 @@ class LinkedList
         if(head.value == _value){
             head = head.next;
         }
-        Node temp = head;
-        while(temp.next != null){
-            if(temp.next.value == _value){
-                Node t = temp.next;
-                temp.next = t.next;
-                if(t.next == null){
-                    tail = temp;
+        if(head == tail && head.value == _value){
+            head = null;
+            tail = null;
+        }else
+            {
+            Node temp = head;
+            while(temp.next != null){
+                if(temp.next.value == _value){
+                    Node t = temp.next;
+                    temp.next = t.next;
+                    if(t.next == null){
+                        tail = temp;
+                    }
+                }else{
+                    temp = temp.next;
                 }
-            }else{
-                temp = temp.next;
             }
         }
     }
