@@ -1,6 +1,7 @@
 package com.company;
 
 
+
 class LinkedList
 {
     public Node head;
@@ -101,14 +102,9 @@ class LinkedList
     }*/
     public void removeAll(int _value)
     {
-        Node temp = head;
-        while(temp.next != null){
-            remove(_value);
-            temp = temp.next;
-        }
-        if(head == tail && head.value == _value){
-            head = null;
-            tail = null;
+        boolean flag = true;
+        while(flag){
+            flag = remove(_value);
         }
     }
 
